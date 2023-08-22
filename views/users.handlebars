@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Tabela Bootstrap</title>
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2>Tabela de Estudantes</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{nome}}</td>
+          <td>{{email}}</td>
+          <td><a href="/user/edit/{{id}}">
+            <button class="btn btn-success">Editar</button>
+          </a></td>
+          <td>
+            <form action="/user/delete/{{id}}" method="post">
+            <input type="submit" value="apagar" class="btn btn-danger">
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
